@@ -1,5 +1,5 @@
 import sys
-from fib_to import fib_to
+from fib import fib_to
 import matplotlib.pyplot as plt
 
 n = int(sys.argv[1])
