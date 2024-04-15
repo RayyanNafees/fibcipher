@@ -11,32 +11,22 @@ def fib_cycles_until(n: int) -> int:
     '''Returns the cycles took to reach the \
     fibonacci number smaller than n'''
     fibs = [0,1]
-    while fibs[-1] < n:
-        fibs.append(fibs[-1]+fibs[-2])
-    return len(fibs) - 2
-
-
+    next_fib = 1       # fibs[-1]+fibs[-2] for [0,1]
+    while next_fib <= n:
+        fibs.append(next_fib)
+        next_fib = fibs[-1]+fibs[-2]
+    return len(fibs)
+    
 def fib_cycles_until_and_fibs(n: int) -> tuple[int, list[int]]:
     '''Returns the cycles took to reach the \
-    fibonacci number smaller than n'''
+    fibonacci number smaller than n & the fibs calculated'''
     fibs = [0,1]
-    while fibs[-1] < n:
-        fibs.append(fibs[-1]+fibs[-2])
-    return len(fibs) - 2, fibs
+    next_fib = 1       # fibs[-1]+fibs[-2] for [0,1]
+    while next_fib <= n:
+        fibs.append(next_fib)
+        next_fib = fibs[-1]+fibs[-2]
+    return len(fibs), fibs
 
-def list_index_lt(fib_list: list[int], n: int) -> int:
-    '''Returns the index of the fibonacci number \
-    lesser than the supplied number'''
-    for index,i in enumerate(reversed(fib_list)):
-        if i < n:
-            return index
-    return -1
-
-def num_len(n: int) -> int:
-    '''Returns the number of digits in a number n'''
-    if n< 10:
-        return 1
-    return int(math.log10(n))+1
 
 
 def fibify(n: int) -> list[int]:
