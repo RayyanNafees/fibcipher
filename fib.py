@@ -45,6 +45,7 @@ def fibify(n: int) -> list[int]:
 
     return fibified_n
 
+
 def unfibify(nlist: list[int]) -> int:
     return sum(fib_to(n)[-1] for n in nlist)
 
